@@ -19,3 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('register', 'App\Http\Controllers\UserController@register');
+
+//rota para o login min 24:10 https://www.youtube.com/watch?v=c2bk_Ytqhmg
+//No UserController esta a funçao criada mas falta as cenas la dentro
+Route::post('login', 'App\Http\Controllers\UserController@login');

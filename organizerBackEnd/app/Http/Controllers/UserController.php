@@ -33,4 +33,9 @@ class UserController extends Controller
         
         return response()->json($response);
     }
+
+    public function login(Request $request){
+        //APAGAR ESTE COMENTARIO DPS
+        //MIN 24:38 https://www.youtube.com/watch?v=c2bk_Ytqhmg
+    }
 }

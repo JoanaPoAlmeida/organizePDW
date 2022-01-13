@@ -14,7 +14,10 @@ class DespesasFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'idDespesa' => $this->faker->id()->unique(),
+            'nomeDespesa' => $this->faker->name(),
+            'valor' => $this->faker->integer(),
+            'date' =>$this->faker->date()
         ];
     }
 }

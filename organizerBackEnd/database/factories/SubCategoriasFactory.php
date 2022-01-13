@@ -14,7 +14,8 @@ class SubCategoriasFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'idSubCategoria' => $this->faker->id()->unique(),
+            'nomeSubCategoria' => $this->faker->name()
         ];
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDespesasTable extends Migration
+class CreateDespesas extends Migration
 {
     /**
      * Run the migrations.
@@ -19,6 +19,12 @@ class CreateDespesasTable extends Migration
             $table->integer('valor');
             $table->date('data');
             $table->timestamps();
+
+            $table->unsignedBigInteger('idCategoria');
+            $table->unsignedBigInteger('idUser');
+
+            $table->foreign('idCategoria')->references('idCategoria')->on('categorias');
+            $table->foreign('idUser')->references('idUser')->on('users');
         });
     }
 

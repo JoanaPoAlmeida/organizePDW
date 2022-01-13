@@ -14,7 +14,8 @@ class CategoriasFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'idCategoria' => $this->faker->id()->unique(),
+            'nomeCategoria' => $this->faker->name()
         ];
     }
 }

@@ -28,7 +28,28 @@ class CategoriasController extends Controller
         $response['code'] = 200;
     }
 
+    
+
         
         return response()->json($response);
     }
+
+
+    public function deleteCategoria($nomeCategoria){
+        if($nomeCategoria != 0){
+          // Delete
+          categorias::where('nomeCategoria', $nomeCategoria)->delete();
+    
+          
+
+            $response['status'] = 1;
+            $response['message'] = 'Categoria apagada com sucesso';
+            $response['code'] = 200;
+          
+        }
+        return response()->json($response);
+    }
+
+
+
 }

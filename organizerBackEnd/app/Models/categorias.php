@@ -24,5 +24,9 @@ class categorias extends Model
     protected $fillable = [
         'nomeCategoria'
     ];
+
+    public static function deleteCategoria($nomeCategoria){
+        categorias::table('categorias')->where('nomeCategoria', '=', $nomeCategoria)->delete();
+      }
     
 }

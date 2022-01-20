@@ -25,3 +25,5 @@ Route::post('login', 'App\Http\Controllers\UserController@login');
 
 
 Route::post('addCategoria', 'App\Http\Controllers\CategoriasController@addCategoria');
+
+Route::get('deleteCategoria/{nomeCategoria}', 'App\Http\Controllers\CategoriasController@deleteCategoria');

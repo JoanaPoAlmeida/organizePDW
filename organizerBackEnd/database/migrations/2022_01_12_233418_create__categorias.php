@@ -15,8 +15,10 @@ class CreateCategorias extends Migration
     {
         Schema::create('categorias', function (Blueprint $table) {
             $table->id('idCategoria');
-            $table->string('nomeCategoria');
+            $table->longText('nomeCategoria');
             $table->timestamps();
+
+            //falta adicionar a foregin key idUser
         });
     }
 

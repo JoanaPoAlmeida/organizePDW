@@ -36,6 +36,7 @@ class CategoriasController extends Controller
 
 
     public function deleteCategoria($nomeCategoria){
+        //check the id of the user and choose only from the users categories
         if($nomeCategoria != 0){
           // Delete
           categorias::where('nomeCategoria', $nomeCategoria)->delete();
@@ -47,6 +48,26 @@ class CategoriasController extends Controller
             $response['code'] = 200;
           
         }
+        return response()->json($response);
+    }
+
+    public function updateCategoria($nomeCategoria, Request $request ){
+        //check the id of the user and choose only from the users categories
+        if($nomeCategoria != 0){
+          // Delete
+          categorias::where('nomeCategoria', $nomeCategoria)->update(['nomeCategoria' => $request]);
+
+            $response['status'] = 1;
+            $response['message'] = 'Categoria atualizada com sucesso';
+            $response['code'] = 200;
+          
+        }
+        return response()->json($response);
+    }
+
+    public function showCategorias(){
+        
+        $response = Categorias::all();
         return response()->json($response);
     }
 

@@ -1,0 +1,24 @@
+mat-toolbar{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #f7f7f7;
+}
+
+ul{
+    li{
+        list-style: none;
+    }
+}
+
+button{
+    border:0;
+    outline: none;
+    background: transparent;
+}
+
+::ng-deep{
+    .mat-menu-content{
+        width: 160px;
+    }
+}

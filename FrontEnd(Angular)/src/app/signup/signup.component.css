@@ -1,0 +1,70 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.container{
+    position: relative;
+    height: 90%;
+    width: 90%;
+    margin: auto;
+    top: 50%;
+    transform: translate(0%,-50%);
+    background: rgb(256,220,156);
+    box-shadow: 5px 10px 8px #888888;
+    padding: 0;
+}
+
+.login-column{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.title{
+    position: relative;
+    text-align: center;
+}
+
+.title h1{
+    font-family: 'Reenie Beanie';
+    font-size: 40px;;
+}
+
+.title h2{
+    color:rgba(225,191,132,255);
+    font-weight: 150;
+}
+
+.login-form{
+    margin: auto;
+    width: 90%;
+    padding: 10px;
+}
+
+.login-form button{
+    margin: auto;
+    color: rgb(234,218,191);
+    background-color: rgb(208,174,118);
+    width: 50%;
+    border-radius: 100px;
+}
+
+.login-form a{
+    color: rgba(225,191,132);
+    margin: auto;
+    margin-top: 10%;
+    border-radius: 100px;
+    text-decoration: none;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: rgba(225,191,132) !important;
+   }
+  
+   ::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: rgba(225,191,132) !important;
+  } 
+  
+  ::ng-deep.mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: rgba(225,191,132) !important;;
+  }

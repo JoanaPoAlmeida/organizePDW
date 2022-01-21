@@ -31,3 +31,7 @@ Route::delete('deleteCategoria/{nomeCategoria}', 'App\Http\Controllers\Categoria
 Route::get('updateCategoria/{nomeCategoria}', 'App\Http\Controllers\CategoriasController@updateCategoria');
 
 Route::get('showCategorias', 'App\Http\Controllers\CategoriasController@updateCategoria');
+
+Route::post('addDespesa', 'App\Http\Controllers\DespesasController@addDespesa'); 
+
+Route::post('deleteDespesa/{nomeDespesa}', 'App\Http\Controllers\DespesasController@deleteDespesa'); 

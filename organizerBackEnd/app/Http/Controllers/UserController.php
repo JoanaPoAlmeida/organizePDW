@@ -35,9 +35,13 @@ class UserController extends Controller
             'email'     => $request -> email,
             'password'  => bcrypt($request->password)
         ]);
+
+        //$token = $user->createToken('organizetoken')->plainTextToken;
+
         $response['status'] = 1;
         $response['message'] = 'User Registered Successful';
         $response['code'] = 200;
+        //$response['token'] =  $token;
         }
 
         
@@ -45,6 +49,33 @@ class UserController extends Controller
     }
 
     public function login(Request $request){
+        $data = $request->validate([
+            'email' => 'required',
+            'password' => 'required|string|min:6',
+        ]);
+        $user = User::where('email', $data['email'])->first();
+
+        if(!$user || !Hash::check($data['password'], $user->password)){
+            $response['status'] = 0;
+            $response['code'] = 401;
+            $response['data'] = null;
+            $response['message'] = 'Email or Password is incorrect';
+            
+
+            return response()->json($response);
+        }else{
+
+            //$token = $user->createToken('organizetoken')->plainTextToken;
+
+            $response['data'] = $data;
+            $response['status'] = 1; //login successfull
+            $response['code'] = 200;
+            $response['message'] = 'Login Successfully';
+            //$response['token'] = $token;
+
+            return response()->json($response);
+        }
+
 
          /* $validator = Validator::make($request->all(), [
             'email' => 'required|email',
@@ -64,7 +95,7 @@ class UserController extends Controller
 
         //APAGAR ESTE COMENTARIO DPS
         //MIN 24:38 https://www.youtube.com/watch?v=c2bk_Ytqhmg
-        $credentials = $request->only(['email', 'password']);
+        /* $credentials = $request->only(['email', 'password']);
         try {
             //$token = JWTAuth::attempt($credentials);
             if(!JWTAuth::attempt($credentials)){
@@ -93,7 +124,7 @@ class UserController extends Controller
         $response['status'] = 1; //login successfull
         $response['code'] = 200;
         $response['message'] = 'Login Successfully';
-        return response()->json($response); 
+        return response()->json($response); */ 
     }
 
     public function logout()

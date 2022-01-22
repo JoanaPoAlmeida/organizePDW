@@ -1,0 +1,41 @@
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Reenie Beanie' rel='stylesheet'>
+</head>
+
+
+<div class="container" fxLayout="row" >
+        <div class="login-column" fxFlex="25" fxLayout="column">
+            <div class="title" fxFlex="40" fxLayoutAlign="center center" fxLayout="column">
+                <h1>Organize</h1>
+                <h2>Welcome to Organize </h2>
+            </div>
+            <div class="login-content" fxFlex>
+                <div class="login-div">
+                    <div class="login-card">
+                        <form  fxLayout="column" class="login-form">
+                            <mat-form-field>
+                            <mat-label>Username</mat-label>
+                            <input matInput>
+                            </mat-form-field>
+                
+                            <mat-form-field>
+                                <mat-label>Password</mat-label>
+                                <input matInput type="password">
+                            </mat-form-field>
+
+                            <mat-form-field>
+                                <mat-label>Email</mat-label>
+                                <input type="text" matInput class="form-input-field" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"/>
+                            </mat-form-field>
+                
+                            <button mat-raised-button type="Register" routerLink="/login">Sign Up</button>
+                            <a routerLink="/login">Return</a>
+                        </form>
+                    </div>
+            </div>
+            </div>
+    </div>
+    <div fxFlex>
+        <img src="/assets/img/image.jpg" width="100%" height="100%">
+    </div>
+</div> 

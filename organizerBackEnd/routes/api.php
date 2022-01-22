@@ -31,4 +31,7 @@ Route::get('updateCategoria/{nomeCategoria}', 'App\Http\Controllers\CategoriasCo
 
 Route::get('showCategorias', 'App\Http\Controllers\CategoriasController@updateCategoria');
 
-Route::get('addSubCategoria', 'App\Http\Controllers\CategoriasController@addSubCategoria');
+Route::post('addDespesa', 'App\Http\Controllers\DespesasController@addDespesa'); 
+
+Route::post('deleteDespesa/{nomeDespesa}', 'App\Http\Controllers\DespesasController@deleteDespesa');
+

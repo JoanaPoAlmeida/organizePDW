@@ -3,22 +3,40 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\despesas;
+use App\Models\User;
+use App\Model\categorias;
 class DespesasController extends Controller
 {
-    public function index() {
+
+    public function addDespesa($idCategoria, Request $request) {
         
-        print_r(route('despesas'));
+        $user = User::where('idUser', '=', auth()->user())->get();
+        $idCat = categorias::where($idCategoria,'=','idCategoria');
+        
+        $despesa = despesas::create([
+            'nomeDespesa' => $request -> nomeDespesa,
+            'valor' => $request -> valor,
+            'data' => $request -> data,
+            'idCategoria' => $idCat,
+            'idUser'=> auth()->user()
+        ]);   
+        $response['status'] = 1;
+        $response['message'] = 'Despesa adicionada com sucesso';
+        $response['code'] = 200;
 
-        //Directly in the view
-        return view('despesas.index');
+        return response()->json($response);
     }
 
-    public function addDespesa() {
-        //ask for name
-        //ask for category (present the available categories in a spinner)
-        return 'Adicionar nova despesa';
+public function deleteDespesa($nomeDespesa){
+    if($nomeDespesa !=0){
+        despesas::where('nomeDespesa', $nomeDespesa)->delete();
+        
+        $response['status'] = 1;
+            $response['message'] = 'Categoria apagada com sucesso';
+            $response['code'] = 200;
     }
+}
 
 //podemos usar isto para mostrar todas as despesas de uma certa categoria
     public function show($name) {

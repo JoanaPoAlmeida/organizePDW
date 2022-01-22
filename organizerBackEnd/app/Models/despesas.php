@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class despesas extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = 'idCategoria';
+
+    protected $fillable = [
+        'nomeDespesa',
+        'valor',
+        'data',
+        'idCategoria'
+    ];
+
+   
+    
 }

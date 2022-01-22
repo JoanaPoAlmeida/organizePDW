@@ -22,11 +22,14 @@ class categorias extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'nomeCategoria'
+        'nomeCategoria',
+        'idUser'
     ];
+
+    protected $guarded = [];
 
     public static function deleteCategoria($nomeCategoria){
         categorias::table('categorias')->where('nomeCategoria', '=', $nomeCategoria)->delete();
-      }
+    }
     
 }

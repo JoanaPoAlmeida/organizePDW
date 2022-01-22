@@ -7,12 +7,18 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTExceptions;
+use Validator;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
+
+    public function __construct() {
+        $this->middleware('auth:api', ['except' => ['login', 'register']]);
+    }
+
     public function register(Request $request) {
-
-
         //check if email already exists
         $user = User::where('email', $request['email'])->first();
 
@@ -33,19 +39,40 @@ class UserController extends Controller
         }
 
         
-        return response()->json($response);
+        return response()->json($response); 
     }
 
     public function login(Request $request){
+
+         /* $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required|string|min:6',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        }
+
+        if (! $token = auth()->attempt($validator->validated())) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
+
+        return $this->createNewToken($token);
+  */
+
         //APAGAR ESTE COMENTARIO DPS
         //MIN 24:38 https://www.youtube.com/watch?v=c2bk_Ytqhmg
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only(['email', 'password']);
         try {
-            if(!JWTAuth::attempt($credentials)){
+            //$token = JWTAuth::attempt($credentials);
+            if(! $token = JWTAuth::attempt($credentials)){
                 $response['status'] = 0;
                 $response['code'] = 401;
                 $response['data'] = null;
                 $response['message'] = 'Email or Password is incorrect';
+                
+                $response['data'] = $credentials;
+
                 return response()->json($response);
             }
         } catch (JWTException $e) {
@@ -64,6 +91,49 @@ class UserController extends Controller
         $response['status'] = 1; //login successfull
         $response['code'] = 200;
         $response['message'] = 'Login Successfully';
-        return response()->json($response);
+        return response()->json($response); 
     }
+
+    public function logout()
+    {
+        auth()->logout();
+
+        return response()->json(['message' => 'Successfully logged out']);
+    }
+
+     /**
+     * Refresh a token.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function refresh() {
+        return $this->createNewToken(auth()->refresh());
+    }
+
+    /**
+     * Get the authenticated User.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function userProfile() {
+        return response()->json(auth()->user());
+    }
+
+    /**
+     * Get the token array structure.
+     *
+     * @param  string $token
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected function createNewToken($token){
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => auth()->factory()->getTTL() * 60,
+            'user' => auth()->user()
+        ]);
+    }
+
+    
 }

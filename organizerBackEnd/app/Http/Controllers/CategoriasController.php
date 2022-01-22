@@ -21,11 +21,13 @@ class CategoriasController extends Controller
         }else{ 
             //adds categoria to database
         $categoria = categorias::create([
-            'nomeCategoria'      => $request -> nomeCategoria
+            'nomeCategoria'      => $request -> nomeCategoria,
+            'idUser' => auth()->user()
         ]);
         $response['status'] = 1;
         $response['message'] = 'Categoria criada com sucesso';
         $response['code'] = 200;
+        $response['user'] = $user;
     }
 
     
@@ -35,7 +37,7 @@ class CategoriasController extends Controller
     }
 
 
-    public function deleteCategoria($nomeCategoria){
+    public function deleteCategoria($nomeDespesa, $nomeCategoria){
         //check the id of the user and choose only from the users categories
         if($nomeCategoria != 0){
           // Delete

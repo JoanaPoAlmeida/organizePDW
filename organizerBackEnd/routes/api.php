@@ -19,9 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('register', 'App\Http\Controllers\UserController@register');
-
-
 Route::post('login', 'App\Http\Controllers\UserController@login');
+Route::post('logout', 'App\Http\Controllers\UserController@logout');
 
 
 Route::post('addCategoria', 'App\Http\Controllers\CategoriasController@addCategoria');
@@ -31,3 +30,5 @@ Route::delete('deleteCategoria/{nomeCategoria}', 'App\Http\Controllers\Categoria
 Route::get('updateCategoria/{nomeCategoria}', 'App\Http\Controllers\CategoriasController@updateCategoria');
 
 Route::get('showCategorias', 'App\Http\Controllers\CategoriasController@updateCategoria');
+
+Route::get('addSubCategoria', 'App\Http\Controllers\CategoriasController@addSubCategoria');

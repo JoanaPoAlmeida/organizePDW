@@ -25,3 +25,14 @@ Route::post('login', 'App\Http\Controllers\UserController@login');
 
 
 Route::post('addCategoria', 'App\Http\Controllers\CategoriasController@addCategoria');
+
+Route::delete('deleteCategoria/{nomeCategoria}', 'App\Http\Controllers\CategoriasController@deleteCategoria');
+
+Route::get('updateCategoria/{nomeCategoria}', 'App\Http\Controllers\CategoriasController@updateCategoria');
+
+Route::get('showCategorias', 'App\Http\Controllers\CategoriasController@updateCategoria');
+
+Route::post('addDespesa', 'App\Http\Controllers\DespesasController@addDespesa'); 
+
+Route::post('deleteDespesa/{nomeDespesa}', 'App\Http\Controllers\DespesasController@deleteDespesa');
+

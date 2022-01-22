@@ -18,6 +18,7 @@ class CreateDespesas extends Migration
             $table->string('nomeDespesa');
             $table->integer('valor');
             $table->date('data');
+            
             $table->timestamps();
 
             $table->unsignedBigInteger('idCategoria');

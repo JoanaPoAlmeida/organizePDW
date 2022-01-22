@@ -10,6 +10,8 @@ use Tymon\JWTAuth\Exceptions\JWTExceptions;
 use Validator;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use Response;
+
 
 class UserController extends Controller
 {
@@ -65,7 +67,7 @@ class UserController extends Controller
         $credentials = $request->only(['email', 'password']);
         try {
             //$token = JWTAuth::attempt($credentials);
-            if(! $token = JWTAuth::attempt($credentials)){
+            if(!JWTAuth::attempt($credentials)){
                 $response['status'] = 0;
                 $response['code'] = 401;
                 $response['data'] = null;
@@ -83,7 +85,7 @@ class UserController extends Controller
         }
         $user = auth()->user();
         $data['token'] = auth()->claims([
-            'user_id' => $user->id,
+            'id' => $user->id,
             'email' =>$user->email
         ])->attempt($credentials);
 

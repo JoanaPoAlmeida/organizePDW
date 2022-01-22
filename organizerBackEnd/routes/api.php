@@ -37,3 +37,6 @@ Route::post('deleteDespesa/{nomeDespesa}', 'App\Http\Controllers\DespesasControl
 
 Route::post('password/email', 'App\Http\Controllers\ForgotPasswordController@forgot');
 Route::post('password/reset', 'App\Http\Controllers\ForgotPasswordController@reset');
+
+
+Route::get('getdata/{id}', 'App\Http\Controllers\ShowDespesasController@edit');

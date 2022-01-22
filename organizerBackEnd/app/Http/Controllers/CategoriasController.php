@@ -22,7 +22,7 @@ class CategoriasController extends Controller
             //adds categoria to database
         $categoria = categorias::create([
             'nomeCategoria'      => $request -> nomeCategoria,
-            'idUser' => 1
+            'idUser' => '1'//auth()->user()
         ]);
         $response['status'] = 1;
         $response['message'] = 'Categoria criada com sucesso';

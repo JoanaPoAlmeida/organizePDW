@@ -25,7 +25,7 @@ class CreateDespesas extends Migration
             $table->unsignedBigInteger('idUser');
 
             $table->foreign('idCategoria')->references('idCategoria')->on('categorias');
-            $table->foreign('idUser')->references('idUser')->on('users');
+            $table->foreign('idUser')->references('id')->on('users');
         });
     }
 

@@ -20,7 +20,7 @@ class CreateCategorias extends Migration
 
             $table->unsignedBigInteger('idUser')->unsigned();
 
-            $table->foreign('idUser')->references('idUser')->on('users');
+            $table->foreign('idUser')->references('id')->on('users');
         });
     }
 

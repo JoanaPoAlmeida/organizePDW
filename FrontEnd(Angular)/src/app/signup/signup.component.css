@@ -28,7 +28,7 @@
 }
 
 .title h2{
-    color:rgba(225,191,132,255);
+    color:rgb(225,191,132);
     font-weight: 150;
 }
 
@@ -47,7 +47,7 @@
 }
 
 .login-form a{
-    color: rgba(225,191,132);
+    color: rgb(225,191,132);
     margin: auto;
     margin-top: 10%;
     border-radius: 100px;

@@ -1,16 +1,69 @@
 <div class="container-fluid page">
     <div class="page__box p-3 mt-2"><p>Categorias</p></div>
     <div class="page__content shadow p-3 position-relative">
-        <div class="page__content-data position-absolute text-center">
-            <form class="form-inline">
-                <div class="form-group mb-2">
-                  <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="email@example.com">
+        <div class="page__content-data">
+
+            <div class="card">
+                <div class="lineInput">
+                    <label>Categoria</label>
+                    <input type="text" id="categoria" placeholder="Nome da Categoria">
+                </div>
+        
+                <div class="lineInput">
+                    <label>Descrição</label>
+                    <input type="text" id="descricao" placeholder="Descrição da Categoria">
+                </div>
+                <div class="button-div">
+                  <button onclick="categoria.salvar()" id="btn1">salvar</button>
+                  <button onclick="categoria.cancelar()">Cancelar</button>
+                </div>
+            </div>
+        
+            <div class="content">
+                <table border="1">
+                    <thead>
+                        <th class="center">ID</th>
+                        <th>Categoria</th>
+                        <th>Descrição</th>
+                        <th class="center">Ações</th>
+                    </thead>
+                    <tbody id="tbody">
+        
+                    </tbody>
+                </table>
+            </div>
+            <!--<form class="form-inline" [formGroup]="catDetail" style="padding-top: 20px;">
+                <p class="p-title" style="padding-left: 15px; padding-bottom: 15px;">Adicionar Categoria</p>
+                <div class="form-group mx-sm-3 mb-2">
+                    <input type="text" formControlName="name" class="form-control" id="name" placeholder="Name">
                 </div>
                 <div class="form-group mx-sm-3 mb-2">
-                  <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+                  <input type="text" formControlName="description" class="form-control" id="description" placeholder="Descrição">
                 </div>
-                <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
+                <button type="submit" class="btn btn-warning" (click)="addCategory()" style="margin-left:15px; background-color: rgb(256,220,156); color: black;">Adicionar</button>
               </form>
+
+              <table class="table table-hover" style="margin-left: 15px; margin-top: 15px; margin-right: 50px; font-family:'Montserrat'; font-size: 15px;">
+                <thead>
+                  <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let categoria of catList">
+                    <td>{{categoria.id}}</td>
+                    <td>{{categoria.name}}</td>
+                    <td>{{categoria.description}}</td>
+                    <td>
+                        <button mat-icon-button (click)="deleteCategory(categoria)"><mat-icon>edit</mat-icon></button>
+                        <button mat-icon-button><mat-icon>delete</mat-icon></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>-->
         </div>
     </div>
 </div>

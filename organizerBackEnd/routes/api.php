@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ForgotPasswordController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -36,3 +36,5 @@ Route::post('addDespesa', 'App\Http\Controllers\DespesasController@addDespesa');
 
 Route::post('deleteDespesa/{nomeDespesa}', 'App\Http\Controllers\DespesasController@deleteDespesa');
 
+Route::post('password/email', 'App\Http\Controllers\ForgotPasswordController@forgot');
+Route::post('password/reset', 'App\Http\Controllers\ForgotPasswordController@reset');

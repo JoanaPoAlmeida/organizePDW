@@ -1,0 +1,4 @@
+
+organizerBackEnd/app/Http/Controllers/CategoriasController.php
+organizerBackEnd/app/Http/Controllers/ForgotPasswordController.php
+organizerBackEnd/app/Http/Requests/ResetPasswordRequest.php

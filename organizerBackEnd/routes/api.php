@@ -52,7 +52,7 @@ Route::post('password/reset', 'App\Http\Controllers\ForgotPasswordController@res
 
 
 
-//export to csv
+//export to excel
 Route::get('exportDespesas', 'App\Http\Controllers\DespesasController@exportDespesas');
 
 

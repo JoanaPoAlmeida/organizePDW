@@ -23,16 +23,12 @@ Route::post('login', 'App\Http\Controllers\UserController@login');
 Route::post('logout', 'App\Http\Controllers\UserController@logout');
 
 
-Route::post('addCategoria', 'App\Http\Controllers\CategoriasController@addCategoria');
-
+Route::post('addCategoria', 'App\Http\Controllers\CategoriasController@addCategoria')->middleware('auth');
 Route::delete('deleteCategoria/{nomeCategoria}', 'App\Http\Controllers\CategoriasController@deleteCategoria');
-
 Route::get('updateCategoria/{nomeCategoria}', 'App\Http\Controllers\CategoriasController@updateCategoria');
-
 Route::get('showCategorias', 'App\Http\Controllers\CategoriasController@updateCategoria');
 
 Route::post('addDespesa', 'App\Http\Controllers\DespesasController@addDespesa'); 
-
 Route::post('deleteDespesa/{nomeDespesa}', 'App\Http\Controllers\DespesasController@deleteDespesa');
 
 Route::post('password/email', 'App\Http\Controllers\ForgotPasswordController@forgot');

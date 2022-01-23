@@ -15,7 +15,8 @@ class despesas extends Model
         'nomeDespesa',
         'valor',
         'data',
-        'idCategoria'
+        'idCategoria',
+        'idUser'
     ];
 
    

@@ -3,12 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\categorias;
 use App\Models\User;
 
 class CategoriasController extends Controller
 {
+    protected $currentUser;
+
+    public function __construct(Guard $auth)
+    {
+        $this->currentUser = $auth->user();
+    }
+    
     public function addCategoria(Request $request) {
+
+        $request->user();
+
+        $id = Auth::user();
 
         $user = User::where('idUser', '=', auth()->user())->get();
         //check if categoria already exists
@@ -22,7 +34,7 @@ class CategoriasController extends Controller
             //adds categoria to database
         $categoria = categorias::create([
             'nomeCategoria'      => $request -> nomeCategoria,
-            'idUser' => '1'//auth()->user()
+            'idUser' => $id
         ]);
         $response['status'] = 1;
         $response['message'] = 'Categoria criada com sucesso';

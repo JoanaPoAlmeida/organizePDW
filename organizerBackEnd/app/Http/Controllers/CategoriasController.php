@@ -8,6 +8,7 @@ use App\Models\User;
 
 class CategoriasController extends Controller
 {
+    
     public function addCategoria(Request $request) {
 
         $user = User::where('idUser', '=', auth()->user())->get();

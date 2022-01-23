@@ -19,7 +19,7 @@ class DespesasController extends Controller
             'valor' => $request -> valor,
             'data' => $request -> data,
             'idCategoria' => $idCat,
-            'idUser'=> auth()->user()
+            'idUser'=> '1'
         ]);   
         $response['status'] = 1;
         $response['message'] = 'Despesa adicionada com sucesso';

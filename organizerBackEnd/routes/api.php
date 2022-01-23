@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\ShowDespesasController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -31,7 +32,7 @@ Route::get('updateCategoria/{nomeCategoria}', 'App\Http\Controllers\CategoriasCo
 
 Route::get('showCategorias', 'App\Http\Controllers\CategoriasController@updateCategoria');
 
-Route::post('addDespesa', 'App\Http\Controllers\DespesasController@addDespesa'); 
+Route::post('addDespesa/{idCategoria}', 'App\Http\Controllers\DespesasController@addDespesa'); 
 
 Route::post('deleteDespesa/{nomeDespesa}', 'App\Http\Controllers\DespesasController@deleteDespesa');
 
@@ -39,4 +40,4 @@ Route::post('password/email', 'App\Http\Controllers\ForgotPasswordController@for
 Route::post('password/reset', 'App\Http\Controllers\ForgotPasswordController@reset');
 
 
-Route::get('getdata/{id}', 'App\Http\Controllers\ShowDespesasController@edit');
+Route::get('getdata/{id}', 'App\Http\Controllers\ShowDespesasController@showbyid');

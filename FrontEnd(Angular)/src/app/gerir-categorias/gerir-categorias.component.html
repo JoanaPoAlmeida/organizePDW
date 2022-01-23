@@ -3,7 +3,7 @@
     <div class="page__content shadow p-3 position-relative">
         <div class="page__content-data">
 
-            <div class="card">
+            <!--<div class="card">
                 <div class="lineInput">
                     <label>Categoria</label>
                     <input type="text" id="categoria" placeholder="Nome da Categoria">
@@ -31,24 +31,29 @@
         
                     </tbody>
                 </table>
-            </div>
-            <!--<form class="form-inline" [formGroup]="catDetail" style="padding-top: 20px;">
-                <p class="p-title" style="padding-left: 15px; padding-bottom: 15px;">Adicionar Categoria</p>
+            </div>-->
+            <p class="p-title" style="padding: 15px;">Adicionar Categoria</p>
+            <form class="formi" [formGroup]="catDetail" style="padding-top: 20px;">
                 <div class="form-group mx-sm-3 mb-2">
-                    <input type="text" formControlName="name" class="form-control" id="name" placeholder="Name">
+                    <label><p>Nome</p></label>
+                    <input type="text" formControlName="name" class="form-control" id="name" placeholder="Nome">
                 </div>
                 <div class="form-group mx-sm-3 mb-2">
+                  <label><p>Descrição</p></label>
                   <input type="text" formControlName="description" class="form-control" id="description" placeholder="Descrição">
                 </div>
+                <div class="form-group mx-sm-3 mb-2" style="margin-top: 37px;">
                 <button type="submit" class="btn btn-warning" (click)="addCategory()" style="margin-left:15px; background-color: rgb(256,220,156); color: black;">Adicionar</button>
+                </div>
               </form>
 
               <table class="table table-hover" style="margin-left: 15px; margin-top: 15px; margin-right: 50px; font-family:'Montserrat'; font-size: 15px;">
                 <thead>
                   <tr>
-                    <th scope="col">id</th>
+                    <th scope="col">#</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Descrição</th>
+                    <th scope="col">Subcategorias</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
@@ -57,13 +62,14 @@
                     <td>{{categoria.id}}</td>
                     <td>{{categoria.name}}</td>
                     <td>{{categoria.description}}</td>
+                    <td>{{categoria.subcategorias}}</td>
                     <td>
                         <button mat-icon-button (click)="deleteCategory(categoria)"><mat-icon>edit</mat-icon></button>
                         <button mat-icon-button><mat-icon>delete</mat-icon></button>
                     </td>
                   </tr>
                 </tbody>
-              </table>-->
+              </table>
         </div>
     </div>
 </div>

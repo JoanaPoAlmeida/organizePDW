@@ -1,8 +1,111 @@
 <div class="container-fluid page">
     <div class="page__box p-3 mt-2"><p>Despesas</p></div>
     <div class="page__content shadow p-3 position-relative">
-        <div class="page__content-data position-absolute text-center">
-            Gerir Despesas
+        <div class="page__content-data">
+          <p class="p-title" style="padding: 15px;">Adicionar Despesa</p>
+            <form class="formi" [formGroup]="despDetail" style="padding-top: 20px;">
+                
+                <div class="form-group mx-sm-3 mb-2">
+                  <label><p>Nome</p></label>
+                    <input type="text" formControlName="name" class="form-control" placeholder="Nome">
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                  <label><p>Valor</p></label>
+                    <input type="number" formControlName="valor" class="form-control" placeholder="Valor">
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                  <label><p>Data</p></label>
+                    <input type="date" formControlName="data" class="form-control">
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label><p>Subcategoria</p></label>
+                    <select class="form-select" formControlName="subcategoryID">
+                    <option *ngFor="let subcategoria of subcatList" [ngValue]="subcategoria.id">{{subcategoria.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group mx-sm-2 mb-2" style="margin-top: 37px;">
+                <button type="submit" class="btn btn-warning" (click)="addDespesa()" style="margin-left:15px; background-color: rgb(256,220,156); color: black;">Adicionar</button>
+                </div>
+              </form>
+              <table class="table table-hover" style="margin-left: 15px; margin-top: 15px; margin-right: 50px; font-family:'Montserrat'; font-size: 15px;">
+                <thead>
+                  <tr >
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Subcategoria</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let despesa of despList">
+                    <td>{{despesa.id}}</td>
+                    <td>{{despesa.name}}</td>
+                    <td>{{despesa.subcategoryID}}</td>
+                    <td>{{despesa.valor}}<p> €</p></td>
+                    <td>
+                        <button mat-icon-button ><mat-icon>edit</mat-icon></button>
+                        <button mat-icon-button (click)="deleteDespesa(despesa)"><mat-icon>delete</mat-icon></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
         </div>
     </div>
 </div>
+
+
+<!--<div class="container-fluid page">
+    <div class="page__box p-3 mt-2"><p>Despesas</p></div>
+    <div class="page__content shadow p-3 position-relative">
+        <div class="page__content-data">
+                        <form class="form-inline" [formGroup]="despDetail" style="padding-top: 20px;">
+                            <p class="p-title" style="padding-left: 15px; padding-bottom: 15px;">Adicionar Subcategoria</p>
+                            <div class="form-group mx-sm-3 mb-2">
+                                <label><p>Nome</p></label>
+                                <input type="text" formControlName="name" class="form-control" id="name" placeholder="Nome">
+                            </div>
+                            <div class="form-group mx-sm-3 mb-2">
+                                <label><p>Valor</p></label>
+                                <input type="number" formControlName="valor" class="form-control" id="name" placeholder="Valor">
+                            </div>
+                            <div class="form-group mx-sm-3 mb-2">
+                                <label><p>Data</p></label>
+                                <input type="date" formControlName="data" class="form-control" id="name" placeholder="Date">
+                            </div>
+                            <div class="form-group mx-sm-3 mb-2">
+                                <label><p>Despesa</p></label>
+                                <select class="custom-select" formControlName="subcategoryID">
+                                <option><p>placeholder</p></option>
+                                <option>{{subcategoria.name}}</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-warning" (click)="addDespesa()" style="margin-left:15px; background-color: rgb(256,220,156); color: black;">Adicionar</button>
+                          </form>
+            
+                          <table class="table table-hover" style="margin-left: 15px; margin-top: 15px; margin-right: 50px; font-family:'Montserrat'; font-size: 15px;">
+                            <thead>
+                              <tr >
+                                <th scope="col">#</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Subcategoria</th>
+                                <th scope="col">Valor</th>
+                                <th scope="col">Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let despesa of despList">
+                                <td>{{despesa.id}}</td>
+                                <td>{{despesa.name}}</td>
+                                <td>{{despesa.subcategoryID}}</td>
+                                <td>{{despesa.valor}}<p> €</p></td>
+                                <td>
+                                    <button mat-icon-button (click)="deletedespesa(despesa)"><mat-icon>edit</mat-icon></button>
+                                    <button mat-icon-button><mat-icon>delete</mat-icon></button>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+            </div>-->

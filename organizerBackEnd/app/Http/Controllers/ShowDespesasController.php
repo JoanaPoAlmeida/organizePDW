@@ -6,10 +6,9 @@ use Illuminate\Http\Request;
 
 class ShowDespesasController extends Controller
 {
-    public function showbyid($id)
+    public function showbyid()
     {
-        $despesas = despesas::find($id);
-        print($id);
+        $despesas = despesas::where('idUser','=', 1 /*posteriormente mudar para Auth()->id()*/)->get();
         return response()->json($despesas);
     }
 }

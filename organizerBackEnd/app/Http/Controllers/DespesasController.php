@@ -5,20 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\despesas;
 use App\Models\User;
-use App\Model\categorias;
+use App\Models\categorias;
 class DespesasController extends Controller
 {
 
     public function addDespesa($idCategoria, Request $request) {
         
-        $user = User::where('idUser', '=', auth()->user())->get();
-        $idCat = categorias::where($idCategoria,'=','idCategoria');
+        $user = User::where('idUser', '=', 1 /*posteriormente mudar para Auth()->id()*/)->get();
         
         $despesa = despesas::create([
             'nomeDespesa' => $request -> nomeDespesa,
             'valor' => $request -> valor,
             'data' => $request -> data,
-            'idCategoria' => $idCat,
+            'idCategoria' => $idCategoria,
             'idUser'=> '1'
         ]);   
         $response['status'] = 1;
@@ -38,17 +37,6 @@ public function deleteDespesa($nomeDespesa){
     }
 }
 
-//podemos usar isto para mostrar todas as despesas de uma certa categoria
-    public function show($name) {
-        $data = [
-            'saude' => 'Saúde',
-            'educacao' => 'Educação',
-            'casa' => 'Casa'
-        ];
 
-        return view('despesas.index', [
-            'despesas' => $data[$name] ?? 'Despesa ' . $name . 'não existe'
-        ]);
-    }
 }
  

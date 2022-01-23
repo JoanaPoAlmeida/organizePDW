@@ -49,3 +49,6 @@ Route::get('exportDespesas', 'App\Http\Controllers\DespesasController@exportDesp
 
 
 
+//dashboard
+Route::get('dashboardAllDespesas', 'App\Http\Controllers\dashboardController@dashboardAllDespesas');
+Route::get('dashboardDespesasByCategorias', 'App\Http\Controllers\dashboardController@dashboardDespesasByCategoria');

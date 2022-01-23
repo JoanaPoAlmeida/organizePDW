@@ -74,8 +74,7 @@ class UserController extends Controller
             //$response['token'] = $token;
 
             return response()->json($response);
-        }
-
+        } 
 
          /* $validator = Validator::make($request->all(), [
             'email' => 'required|email',
@@ -124,7 +123,7 @@ class UserController extends Controller
         $response['status'] = 1; //login successfull
         $response['code'] = 200;
         $response['message'] = 'Login Successfully';
-        return response()->json($response); */ 
+        return response()->json($response);  */
     }
 
     public function logout()

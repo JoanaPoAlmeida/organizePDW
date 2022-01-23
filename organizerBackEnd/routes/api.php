@@ -19,25 +19,52 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//registo e login
 Route::post('register', 'App\Http\Controllers\UserController@register');
 Route::post('login', 'App\Http\Controllers\UserController@login');
 Route::post('logout', 'App\Http\Controllers\UserController@logout');
 
-
+//categorias
 Route::post('addCategoria', 'App\Http\Controllers\CategoriasController@addCategoria');
+Route::delete('deleteCategoria', 'App\Http\Controllers\CategoriasController@deleteCategoria');
+Route::put('updateCategoria', 'App\Http\Controllers\CategoriasController@updateCategoria');
+Route::get('showCategorias', 'App\Http\Controllers\CategoriasController@showCategorias');
+Route::get('getcategorias/{id}', 'App\Http\Controllers\ShowCategorias@showCat');
 
-Route::delete('deleteCategoria/{nomeCategoria}', 'App\Http\Controllers\CategoriasController@deleteCategoria');
+//subCategorias
+Route::get('showSubCategorias', 'App\Http\Controllers\SubCategoriasController@showSubCategorias');
+Route::delete('deleteSubCategoria', 'App\Http\Controllers\SubCategoriasController@deleteSubCategoria');
+Route::put('updateSubCategoria', 'App\Http\Controllers\SubCategoriasController@updateSubCategoria');
+Route::post('addSubCategoria', 'App\Http\Controllers\SubCategoriasController@addSubCategoria');
 
-Route::get('updateCategoria/{nomeCategoria}', 'App\Http\Controllers\CategoriasController@updateCategoria');
+//categorias e subcategorias
+Route::get('showAll', 'App\Http\Controllers\SubCategoriasController@showAll');
 
-Route::get('showCategorias', 'App\Http\Controllers\CategoriasController@updateCategoria');
-
+//despesas
 Route::post('addDespesa/{idCategoria}', 'App\Http\Controllers\DespesasController@addDespesa'); 
-
 Route::post('deleteDespesa/{nomeDespesa}', 'App\Http\Controllers\DespesasController@deleteDespesa');
+Route::get('getdespesas', 'App\Http\Controllers\ShowDespesasController@showbyid');
 
+//password reset e recuperar
 Route::post('password/email', 'App\Http\Controllers\ForgotPasswordController@forgot');
 Route::post('password/reset', 'App\Http\Controllers\ForgotPasswordController@reset');
 
 
-Route::get('getdata/{id}', 'App\Http\Controllers\ShowDespesasController@showbyid');
+
+
+//export to excel
+Route::get('exportDespesas', 'App\Http\Controllers\DespesasController@exportDespesas');
+
+
+
+//dashboard
+Route::get('dashboardAllDespesas', 'App\Http\Controllers\dashboardController@dashboardAllDespesas');
+Route::get('dashboardDespesasByCategorias', 'App\Http\Controllers\dashboardController@dashboardDespesasByCategoria');
+
+
+//forgot password
+Route::post('forgotpassword', 'App\Http\Controllers\ForgotPasswordController@forgot_password');
+
+Route::group(['middleware' => 'auth:api'], function () {
+    Route::post('changepassword', 'App\Http\Controllers\ForgotPasswordController@change_password');
+});

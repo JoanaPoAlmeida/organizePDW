@@ -1,7 +1,7 @@
 export class Despesas {
-    id: number=0;
-    name: string='';
+    idDespesa: number=0;
+    nomeDespesa: string='';
     valor:number=0;
-    subcategoryID: number=0;
+    idCategoria: number=0;
     data:string='';
 }

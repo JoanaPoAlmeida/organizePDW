@@ -3,7 +3,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subcategorias } from '../model/subcategorias';
 import { Despesas } from '../model/despesas';
 import { DespesaService } from '../service/despesa.service';
-import { SubcategoriaService } from '../service/subcategoria.service';
+import { CategoriaService } from '../service/categoria.service';
+import { Categoria } from '../model/categoria';
 
 @Component({
   selector: 'app-gerir-despesas',
@@ -18,11 +19,11 @@ export class GerirDespesasComponent implements OnInit {
     despList: Despesas[] = [];
 
     //subcategory variables
-    subcatDetail !: FormGroup
-    @Input()subcategoria: Subcategorias = new Subcategorias;
-    subcatList: Subcategorias[] = [];
+    catDetail !: FormGroup
+    @Input()categoria: Categoria = new Categoria;
+    catList: Categoria[] = [];
 
-  constructor(private formBuilder : FormBuilder, private despService : DespesaService, private subCatService : SubcategoriaService) { }
+  constructor(private formBuilder : FormBuilder, private despService : DespesaService, private catService : CategoriaService) { }
 
   ngOnInit(): void {
     this.getAllDespesas();
@@ -34,26 +35,14 @@ export class GerirDespesasComponent implements OnInit {
       valor: [''],
       data: [''],
     });
-
-    this.subcategoria.id = 1;
-    this.subcategoria.name = 'henrique';
-    this.subcategoria.despesas = 12;
-    this.subcategoria.categoryID = 1;
-    this.subcatList.push(this.subcategoria)
-    this.subcategoria.id = 2;
-    this.subcategoria.name = 'Pedro';
-    this.subcategoria.despesas = 124;
-    this.subcategoria.categoryID = 1;
-    this.subcatList.push(this.subcategoria)
-
   }
 
   addDespesa(){
-    this.despObj.id = this.despDetail.value.id;
-    this.despObj.name = this.despDetail.value.name;
+    this.despObj.idDespesa = this.despDetail.value.id;
+    this.despObj.nomeDespesa = this.despDetail.value.name;
     this.despObj.valor = this.despDetail.value.valor;
     this.despObj.data = this.despDetail.value.data;
-    this.despObj.subcategoryID= this.despDetail.value.subcategoryID;
+    //this.despObj.subcategoryID= this.despDetail.value.subcategoryID;
    
     this.despService.addDespesa(this.despObj).subscribe(res=>{
       console.log(res);
@@ -73,8 +62,8 @@ export class GerirDespesasComponent implements OnInit {
   }
 
   getAllSubcategorias(){
-    this.subCatService.getAllSubcategories().subscribe(res=>{
-      this.subcatList = res;
+    this.catService.getAllCategories().subscribe(res=>{
+      this.catList = res;
     }, err=>{
       console.log("Error while fetching the data;");
     });

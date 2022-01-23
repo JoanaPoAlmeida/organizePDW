@@ -30,6 +30,6 @@ export class DespesaService {
    }
 
    deleteDespesa(desp: Despesas) : Observable<Despesas> {
-     return this.http.delete<Despesas>(this.deleteDespURL+'/' +desp.id);
+     return this.http.delete<Despesas>(this.deleteDespURL+'/' +desp.idDespesa);
    }
 }

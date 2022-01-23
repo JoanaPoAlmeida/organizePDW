@@ -57,3 +57,11 @@ Route::get('exportDespesas', 'App\Http\Controllers\DespesasController@exportDesp
 //dashboard
 Route::get('dashboardAllDespesas', 'App\Http\Controllers\dashboardController@dashboardAllDespesas');
 Route::get('dashboardDespesasByCategorias', 'App\Http\Controllers\dashboardController@dashboardDespesasByCategoria');
+
+
+//forgot password
+Route::post('forgotpassword', 'App\Http\Controllers\ForgotPasswordController@forgot_password');
+
+Route::group(['middleware' => 'auth:api'], function () {
+    Route::post('changepassword', 'App\Http\Controllers\ForgotPasswordController@change_password');
+});

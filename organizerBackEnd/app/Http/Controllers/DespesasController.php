@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\despesas;
 use App\Models\User;
 use App\Models\categorias;
+use App\Exports\despesasExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class DespesasController extends Controller
 {
 
@@ -27,16 +30,17 @@ class DespesasController extends Controller
         return response()->json($response);
     }
 
-public function deleteDespesa($nomeDespesa){
-    if($nomeDespesa !=0){
-        despesas::where('nomeDespesa', $nomeDespesa)->delete();
-        
-        $response['status'] = 1;
-            $response['message'] = 'Categoria apagada com sucesso';
-            $response['code'] = 200;
+    public function deleteDespesa($nomeDespesa){
+        if($nomeDespesa !=0){
+            despesas::where('nomeDespesa', $nomeDespesa)->delete();
+            
+            $response['status'] = 1;
+                $response['message'] = 'Categoria apagada com sucesso';
+                $response['code'] = 200;
+        }
     }
-}
-
-
+    public function exportDespesas(){
+        return Excel::download(new despesasExport, 'downloadDespesas.xlsx');
+    }
 }
  

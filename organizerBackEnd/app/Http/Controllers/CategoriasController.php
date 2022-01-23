@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\categorias;
+use App\Models\despesas;
 use App\Models\User;
 
 class CategoriasController extends Controller
@@ -39,12 +40,13 @@ class CategoriasController extends Controller
     }
 
 
-    public function deleteCategoria(Request $request){
+    public function deleteCategoria($idCategoria){
         //check the id of the user and choose only from the users categories
-        if($request->idCategoria != 0){ //o user vai selecionar o id a partir de um spinner que apresenta os nomes
+        if($idCategoria != 0){ //o user vai selecionar o id a partir de um spinner que apresenta os nomes
           // Delete
-          categorias::where('idCategoria', $request->idCategoria)->delete();
-
+          despesas::where('idCategoria', $idCategoria)->delete();
+          categorias::where('idCategoria', $idCategoria)->delete();
+          
             $response['status'] = 1;
             $response['message'] = 'Categoria apagada com sucesso';
             $response['code'] = 200;

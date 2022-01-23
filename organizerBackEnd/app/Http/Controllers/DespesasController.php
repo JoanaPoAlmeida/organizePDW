@@ -13,18 +13,18 @@ use Maatwebsite\Excel\Facades\Excel;
 class DespesasController extends Controller
 {
 
-    public function addDespesa($idCategoria, Request $request) {
+    public function addDespesa( Request $request) {
         //$user = User::where('idUser', '=', auth()->user())->get();
         //$idCat = ModelsCategorias::where($idCategoria,'=','idCategoria');
 
         
-        $user = User::where('idUser', '=', 1 /*posteriormente mudar para Auth()->id()*/)->get();
+        $user = User::where('id', '=', 1 /*posteriormente mudar para Auth()->id()*/)->get();
         
         $despesa = despesas::create([
             'nomeDespesa' => $request -> nomeDespesa,
             'valor' => $request -> valor,
             'data' => $request -> data,
-            'idCategoria' => $idCategoria,
+            'idCategoria' => $request -> idCategoria,
             'idUser'=> '1'
         ]);           
 
@@ -35,13 +35,15 @@ class DespesasController extends Controller
         return response()->json($response);
     }
 
-    public function deleteDespesa($nomeDespesa){
-        if($nomeDespesa !=0){
-            despesas::where('nomeDespesa', $nomeDespesa)->delete();
+    public function deleteDespesa($idDespesas){
+        if($idDespesas !=0){
+            despesas::where('idDespesas', $idDespesas)->delete();
             
             $response['status'] = 1;
-                $response['message'] = 'Categoria apagada com sucesso';
+            $response['message'] = 'Despesa apagada com sucesso';
                 $response['code'] = 200;
+
+            return response()->json($response);
         }
     }
     public function exportDespesas(){

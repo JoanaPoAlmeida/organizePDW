@@ -58,7 +58,7 @@ export class GerirCategoriasComponent implements OnInit {
   }
 
   deleteCategory(cat : Categoria){
-    this.catService.deleteCategory(this.catObj).subscribe(res=>{
+    this.catService.deleteCategory(cat).subscribe(res=>{
       console.log(res);
       this.getAllCategories();
     }, err=>{

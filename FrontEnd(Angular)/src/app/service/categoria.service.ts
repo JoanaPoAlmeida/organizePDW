@@ -18,7 +18,7 @@ export class CategoriaService {
     this.addCatURL = 'http://127.0.0.1:8000/api/addCategoria'
     this.getCatURL = 'http://127.0.0.1:8000/api/showCategorias'
     this.updateCatURL = 'http://localhost:4200/mainpage/categorias'
-    this.deleteCatURL = 'http://localhost:4200/mainpage/categorias'
+    this.deleteCatURL = 'http://127.0.0.1:8000/api/deleteCategoria'
    }
 
    addCategory(cat: Categoria): Observable<Categoria> {

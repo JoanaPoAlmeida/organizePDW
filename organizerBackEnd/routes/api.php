@@ -26,7 +26,7 @@ Route::post('logout', 'App\Http\Controllers\UserController@logout');
 
 
 //categorias
-Route::delete('deleteCategoria', 'App\Http\Controllers\CategoriasController@deleteCategoria');
+Route::delete('deleteCategoria/{idCategoria}', 'App\Http\Controllers\CategoriasController@deleteCategoria');
 Route::put('updateCategoria', 'App\Http\Controllers\CategoriasController@updateCategoria');
 Route::get('showCategorias', 'App\Http\Controllers\CategoriasController@showCategorias');
 Route::get('getcategorias/{id}', 'App\Http\Controllers\ShowCategorias@showCat');
@@ -34,7 +34,7 @@ Route::post('addCategoria', 'App\Http\Controllers\CategoriasController@addCatego
 
 //subCategorias
 Route::get('showSubCategorias', 'App\Http\Controllers\SubCategoriasController@showSubCategorias');
-Route::delete('deleteSubCategoria', 'App\Http\Controllers\SubCategoriasController@deleteSubCategoria');
+Route::delete('deleteSubCategoria/{idSubCategoria}', 'App\Http\Controllers\SubCategoriasController@deleteSubCategoria');
 Route::put('updateSubCategoria', 'App\Http\Controllers\SubCategoriasController@updateSubCategoria');
 Route::post('addSubCategoria', 'App\Http\Controllers\SubCategoriasController@addSubCategoria');
 
@@ -42,8 +42,8 @@ Route::post('addSubCategoria', 'App\Http\Controllers\SubCategoriasController@add
 Route::get('showAll', 'App\Http\Controllers\SubCategoriasController@showAll');
 
 //despesas
-Route::post('addDespesa/{idCategoria}', 'App\Http\Controllers\DespesasController@addDespesa'); 
-Route::post('deleteDespesa/{nomeDespesa}', 'App\Http\Controllers\DespesasController@deleteDespesa');
+Route::post('addDespesa', 'App\Http\Controllers\DespesasController@addDespesa'); 
+Route::delete('deleteDespesa/{idDespesas}', 'App\Http\Controllers\DespesasController@deleteDespesa');
 Route::get('getdespesas', 'App\Http\Controllers\ShowDespesasController@showbyid');
 
 //password reset e recuperar

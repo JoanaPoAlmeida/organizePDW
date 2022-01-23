@@ -43,6 +43,6 @@ Route::post('password/reset', 'App\Http\Controllers\ForgotPasswordController@res
 //subCategorias
 Route::get('showSubCategorias', 'App\Http\Controllers\SubCategoriasController@showSubCategorias');
 
-
-
-
+//dashboard
+Route::get('dashboardAllDespesas', 'App\Http\Controllers\dashboardController@dashboardAllDespesas');
+Route::get('dashboardDespesasByCategorias', 'App\Http\Controllers\dashboardController@dashboardDespesasByCategoria');

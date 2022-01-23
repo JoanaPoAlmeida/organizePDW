@@ -44,7 +44,7 @@ return [
             'driver' => 'session',
             'provider' => 'users',
             'hash' => true,
-        ],
+        ], 
     ],
 
     /*

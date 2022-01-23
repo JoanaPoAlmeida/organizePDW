@@ -11,8 +11,11 @@ class CategoriasController extends Controller
 {
     public function addCategoria(Request $request) {
 
-        $user = User::where('idUser', '=', 1 /*posteriormente mudar para Auth()->id()*/)->get();
+        dd($request);
+        $user = User::where('id', '=', 1 /*posteriormente mudar para Auth()->id()*/)->get();
         
+        $user = $request->user();
+
          //check if categoria already exists
         $categoria = categorias::where('nomeCategoria', $request['nomeCategoria'])->first();
         if($categoria){

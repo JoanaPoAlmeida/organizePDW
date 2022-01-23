@@ -28,8 +28,5 @@ class categorias extends Model
     ];
 
 
-    public static function deleteCategoria($nomeCategoria){
-        categorias::table('categorias')->where('nomeCategoria', '=', $nomeCategoria)->delete();
-    }
     
 }

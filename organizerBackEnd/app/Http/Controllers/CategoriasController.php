@@ -11,7 +11,7 @@ class CategoriasController extends Controller
 {
     public function addCategoria(Request $request) {
 
-        dd($request);
+        //dd($request);
         $user = User::where('id', '=', 1 /*posteriormente mudar para Auth()->id()*/)->get();
         
         $user = $request->user();
@@ -26,6 +26,7 @@ class CategoriasController extends Controller
             //adds categoria to database
         $categoria = categorias::create([
             'nomeCategoria'      => $request -> nomeCategoria,
+            'descricao' => $request -> descricao,
             'idUser' => 1 /*posteriormente mudar para Auth()->id()*/
         ]);
         $response['status'] = 1;

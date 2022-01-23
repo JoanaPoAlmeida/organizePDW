@@ -16,6 +16,7 @@ class CreateCategorias extends Migration
         Schema::create('categorias', function (Blueprint $table) {
             $table->id('idCategoria');
             $table->longText('nomeCategoria');
+            $table->longText('descricao');
             $table->timestamps();
 
             $table->unsignedBigInteger('idUser')->unsigned();

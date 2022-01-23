@@ -15,8 +15,8 @@ export class CategoriaService {
 
   constructor(private http: HttpClient) {
 
-    this.addCatURL = 'http://localhost:4200/mainpage/categorias'
-    this.getCatURL = 'http://localhost:4200/mainpage/categorias'
+    this.addCatURL = 'http://127.0.0.1:8000/api/addCategoria'
+    this.getCatURL = 'http://127.0.0.1:8000/api/showCategorias'
     this.updateCatURL = 'http://localhost:4200/mainpage/categorias'
     this.deleteCatURL = 'http://localhost:4200/mainpage/categorias'
    }
@@ -30,6 +30,6 @@ export class CategoriaService {
    }
 
    deleteCategory(cat: Categoria) : Observable<Categoria> {
-     return this.http.delete<Categoria>(this.deleteCatURL+'/' +cat.id);
+     return this.http.delete<Categoria>(this.deleteCatURL+'/' +cat.idCategoria);
    }
 }

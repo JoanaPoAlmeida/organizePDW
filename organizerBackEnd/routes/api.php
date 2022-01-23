@@ -30,6 +30,7 @@ Route::delete('deleteCategoria', 'App\Http\Controllers\CategoriasController@dele
 Route::put('updateCategoria', 'App\Http\Controllers\CategoriasController@updateCategoria');
 Route::get('showCategorias', 'App\Http\Controllers\CategoriasController@showCategorias');
 Route::get('getcategorias/{id}', 'App\Http\Controllers\ShowCategorias@showCat');
+Route::post('addCategoria', 'App\Http\Controllers\CategoriasController@addCategoria');
 
 //subCategorias
 Route::get('showSubCategorias', 'App\Http\Controllers\SubCategoriasController@showSubCategorias');
@@ -59,11 +60,11 @@ Route::get('dashboardDespesasByCategorias', 'App\Http\Controllers\dashboardContr
 //forgot password
 //Route::post('forgotpassword', 'App\Http\Controllers\ForgotPasswordController@forgot_password');
 
-Route::group(['middleware' => 'auth:sanctum'], function () {
+ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('/me', function(Request $request) {
         return auth()->user();
     });
     //Route::post('changepassword', 'App\Http\Controllers\ForgotPasswordController@change_password');
-    Route::post('addCategoria', 'App\Http\Controllers\CategoriasController@addCategoria');
+    //Route::post('addCategoria', 'App\Http\Controllers\CategoriasController@addCategoria');
     
-});
+}); 

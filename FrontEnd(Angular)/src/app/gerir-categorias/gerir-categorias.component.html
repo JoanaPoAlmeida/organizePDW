@@ -59,10 +59,9 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let categoria of catList">
-                    <td>{{categoria.id}}</td>
-                    <td>{{categoria.name}}</td>
-                    <td>{{categoria.description}}</td>
-                    <td>{{categoria.subcategorias}}</td>
+                    <td>{{categoria.idCategoria}}</td>
+                    <td>{{categoria.nomeCategoria}}</td>
+                    <td>{{categoria.descricao}}</td>
                     <td>
                         <button mat-icon-button (click)="deleteCategory(categoria)"><mat-icon>edit</mat-icon></button>
                         <button mat-icon-button><mat-icon>delete</mat-icon></button>

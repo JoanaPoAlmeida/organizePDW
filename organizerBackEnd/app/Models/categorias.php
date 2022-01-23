@@ -23,6 +23,7 @@ class categorias extends Model
      */
     protected $fillable = [
         'nomeCategoria',
+        'descricao',
         'idUser'
     ];
 

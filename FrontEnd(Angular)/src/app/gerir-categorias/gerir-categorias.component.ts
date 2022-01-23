@@ -29,9 +29,9 @@ export class GerirCategoriasComponent implements OnInit {
   }
 
   addCategory(){
-    this.catObj.id = this.catDetail.value.id;
-    this.catObj.name = this.catDetail.value.name;
-    this.catObj.description = this.catDetail.value.description;
+    this.catObj.idCategoria = this.catDetail.value.id;
+    this.catObj.nomeCategoria = this.catDetail.value.name;
+    this.catObj.descricao = this.catDetail.value.description;
    
     this.catService.addCategory(this.catObj).subscribe(res=>{
       console.log(res);
@@ -52,9 +52,9 @@ export class GerirCategoriasComponent implements OnInit {
 
   editCategory(cat: Categoria){
 
-    this.catDetail.controls['id'].setValue(cat.id);
-    this.catDetail.controls['name'].setValue(cat.name);
-    this.catDetail.controls['description'].setValue(cat.description);
+    this.catDetail.controls['id'].setValue(cat.idCategoria);
+    this.catDetail.controls['name'].setValue(cat.nomeCategoria);
+    this.catDetail.controls['description'].setValue(cat.descricao);
   }
 
   deleteCategory(cat : Categoria){

@@ -26,7 +26,6 @@ class categorias extends Model
         'idUser'
     ];
 
-    protected $guarded = [];
 
     public static function deleteCategoria($nomeCategoria){
         categorias::table('categorias')->where('nomeCategoria', '=', $nomeCategoria)->delete();

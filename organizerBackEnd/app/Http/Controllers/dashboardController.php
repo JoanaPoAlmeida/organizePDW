@@ -29,7 +29,7 @@ class dashboardController extends Controller
             ['idUser', '=', 1 /*posteriormente mudar para Auth()->id()*/],
             ['data','>=', $request -> datainicial],
             ['data','<=', $request -> datafinal],
-            ['idCategoria', '=', $request -> idCategoria] //isto é suposto aparecer ao utilizador num spinner onde sao mostrados os nomes das categorias relacionadas com o id
+            ['idCategoria', '=', $request -> idCategoria] //isto é suposto aparecer ao utilizador num spinner onde sao mostrados os nomes das categorias relacionadas com o id, ele seleciona e é esse o id que é recebido aqui
         ])
         ->get();
     return response()->json($response);

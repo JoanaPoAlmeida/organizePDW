@@ -22,13 +22,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import{HighchartsChartModule} from 'highcharts-angular';
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
 import { FormsModule } from '@angular/forms'
-=======
->>>>>>> 40b5ed5e33fb92263a7f47bf5c0b9332ef92cfda
->>>>>>> Stashed changes
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { GerirDespesasComponent } from './gerir-despesas/gerir-despesas.component';

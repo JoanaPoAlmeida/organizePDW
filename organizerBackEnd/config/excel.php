@@ -1,6 +1,8 @@
 <?php
 
 use Maatwebsite\Excel\Excel;
+use Maatwebsite\Excel\Concerns\FromCollection;
+use App\Models\despesas;
 
 return [
     'exports' => [
@@ -160,7 +162,7 @@ return [
     |
     */
     'extension_detector' => [
-        /* 'xlsx'     => Excel::XLSX,
+        'xlsx'     => Excel::XLSX,
         'xlsm'     => Excel::XLSX,
         'xltx'     => Excel::XLSX,
         'xltm'     => Excel::XLSX,
@@ -174,7 +176,7 @@ return [
         'htm'      => Excel::HTML,
         'html'     => Excel::HTML,
         'csv'      => Excel::CSV,
-        'tsv'      => Excel::TSV, */
+        'tsv'      => Excel::TSV, 
 
         /*
         |--------------------------------------------------------------------------
@@ -185,7 +187,7 @@ return [
         | Available options: Excel::MPDF | Excel::TCPDF | Excel::DOMPDF
         |
         */
-        //'pdf'      => Excel::DOMPDF,
+        'pdf'      => Excel::DOMPDF,
     ],
 
     /*

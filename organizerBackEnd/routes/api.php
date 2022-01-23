@@ -41,3 +41,5 @@ Route::post('password/reset', 'App\Http\Controllers\ForgotPasswordController@res
 
 
 Route::get('getdata/{id}', 'App\Http\Controllers\ShowDespesasController@showbyid');
+
+Route::get('getcategorias/{id}', 'App\Http\Controllers\ShowCategorias@showCat');

@@ -9,6 +9,8 @@ class subCategorias extends Model
 {
     use HasFactory;
 
+    protected $table = 'subCategorias';
+
     /**
      * The primary key associated with the table.
      *

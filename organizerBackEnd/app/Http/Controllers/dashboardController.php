@@ -8,7 +8,7 @@ class dashboardController extends Controller
 {
     //Como se distribuem as despesas num certo período de tempo ao longo das várias categorias?
     public function dashboardAllDespesas(Response $response){
-
+        
         
     }
 

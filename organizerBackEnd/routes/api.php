@@ -40,6 +40,9 @@ Route::get('getdespesas', 'App\Http\Controllers\ShowDespesasController@showbyid'
 Route::post('password/email', 'App\Http\Controllers\ForgotPasswordController@forgot');
 Route::post('password/reset', 'App\Http\Controllers\ForgotPasswordController@reset');
 
+//subCategorias
+Route::get('showSubCategorias', 'App\Http\Controllers\SubCategoriasController@showSubCategorias');
+
 
 
 

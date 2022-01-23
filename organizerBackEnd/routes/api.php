@@ -44,5 +44,8 @@ Route::post('password/reset', 'App\Http\Controllers\ForgotPasswordController@res
 Route::get('showSubCategorias', 'App\Http\Controllers\SubCategoriasController@showSubCategorias');
 
 
+//export to csv
+Route::get('exportDespesas', 'App\Http\Controllers\DespesasController@exportDespesas');
+
 
 

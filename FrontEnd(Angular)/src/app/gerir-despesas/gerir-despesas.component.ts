@@ -42,15 +42,17 @@ export class GerirDespesasComponent implements OnInit {
     this.despObj.nomeDespesa = this.despDetail.value.name;
     this.despObj.valor = this.despDetail.value.valor;
     this.despObj.data = this.despDetail.value.data;
-    //this.despObj.subcategoryID= this.despDetail.value.subcategoryID;
+    this.despObj.idCategoria= this.despDetail.value.subcategoryID;
+    
+    console.log(this.despObj);
    
-    this.despService.addDespesa(this.despObj).subscribe(res=>{
+    /*this.despService.addDespesa(this.despObj).subscribe(res=>{
       console.log(res);
       this.getAllDespesas();
     }, err=>{
       console.log(err);
       console.log(this.despObj);
-    });
+    });*/
   }
 
   getAllDespesas(){
@@ -70,6 +72,11 @@ export class GerirDespesasComponent implements OnInit {
   }
 
   deleteDespesa(despesa: Despesas){
-    console.log("siiiiiiiiiiiim");
+    this.despService.deleteDespesa(this.despObj).subscribe(res=>{
+      console.log(res);
+      this.getAllDespesas();
+    }, err=>{
+      console.log(err);
+    })
   }
 }

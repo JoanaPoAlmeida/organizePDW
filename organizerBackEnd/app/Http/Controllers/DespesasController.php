@@ -6,21 +6,24 @@ use Illuminate\Http\Request;
 use App\Models\despesas;
 use App\Models\User;
 use App\Model\categorias;
+use App\Models\categorias as ModelsCategorias;
+
 class DespesasController extends Controller
 {
 
     public function addDespesa($idCategoria, Request $request) {
-        
-        $user = User::where('idUser', '=', auth()->user())->get();
-        $idCat = categorias::where($idCategoria,'=','idCategoria');
+        //$user = User::where('idUser', '=', auth()->user())->get();
+        //$idCat = ModelsCategorias::where($idCategoria,'=','idCategoria');
+
         
         $despesa = despesas::create([
             'nomeDespesa' => $request -> nomeDespesa,
             'valor' => $request -> valor,
             'data' => $request -> data,
-            'idCategoria' => $idCat,
+            'idCategoria' => '1',
             'idUser'=> '1'
-        ]);   
+        ]);           
+
         $response['status'] = 1;
         $response['message'] = 'Despesa adicionada com sucesso';
         $response['code'] = 200;

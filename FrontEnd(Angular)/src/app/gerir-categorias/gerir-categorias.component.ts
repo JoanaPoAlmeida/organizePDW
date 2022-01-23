@@ -1,4 +1,4 @@
-/*import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, FormControl} from '@angular/forms'
 import { Categoria } from '../model/categoria';
 import { CategoriaService } from '../service/categoria.service';
@@ -22,9 +22,8 @@ export class GerirCategoriasComponent implements OnInit {
     this.getAllCategories();
 
     this.catDetail = this.formBuilder.group({
-      id : 1,
-      name : ' ',
-      description : ' '
+      name : [''],
+      description : ['']
     });
 
   }
@@ -33,11 +32,6 @@ export class GerirCategoriasComponent implements OnInit {
     this.catObj.id = this.catDetail.value.id;
     this.catObj.name = this.catDetail.value.name;
     this.catObj.description = this.catDetail.value.description;
-    
-    this.catList.push(this.catObj);
-    this.catDetail.value.id = this.catDetail.value.id+1;
-    console.log(this.catList);
-    
    
     this.catService.addCategory(this.catObj).subscribe(res=>{
       console.log(res);
@@ -64,10 +58,17 @@ export class GerirCategoriasComponent implements OnInit {
   }
 
   deleteCategory(cat : Categoria){
-
+    this.catService.deleteCategory(this.catObj).subscribe(res=>{
+      console.log(res);
+      this.getAllCategories();
+    }, err=>{
+      console.log(err);
+    })
   }
-}*/
-import { Component, OnInit } from '@angular/core';
+}
+
+
+/*import { Component, OnInit } from '@angular/core';
 
 //declare function salvar(): void;
 //declare function cancelar(): void;
@@ -89,4 +90,4 @@ export class GerirCategoriasComponent implements OnInit {
   ngOnInit() {
 
   }
-}
+}*/

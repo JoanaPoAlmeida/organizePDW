@@ -1,1 +1,37 @@
-@import "../dashboard/dashboard.component.scss";
+.page{
+    color: white;
+    padding: 0 1rem;
+    background: #f1f5f9;
+    &__box{
+        min-height: 120px;
+        background: rgb(204,175,122);
+        margin: 0 -1rem;
+        font-size: 36px;
+        font-family: Montserrat;
+        p{
+            padding-top: 1rem;
+        }
+    }
+
+    &__content{
+        min-height: calc(100vh - 170px);
+        border-radius: 8px;
+        margin-top: -2rem;
+        background: white;
+        color: black;
+        font-size: 2rem;
+        &-data{
+            background-color: white;
+            height: 95%;
+            width: 95%;
+            font-family: 'Montserrat';
+    }
+    }};
+
+    label p {
+        font-size: 17px;
+    }
+
+    .formi{
+        display: inline-flex;
+    }

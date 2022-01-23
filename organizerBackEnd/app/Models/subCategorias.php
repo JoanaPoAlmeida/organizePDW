@@ -16,7 +16,7 @@ class subCategorias extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'idCategoria';
+    protected $primaryKey = 'idSubCat';
 
     /**
      * The attributes that are mass assignable.
@@ -24,8 +24,7 @@ class subCategorias extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'nomeCategoria',
-        'idUser',
+        'nomeSubCat',
         'idCategoria'
     ];
 

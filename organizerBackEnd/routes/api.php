@@ -33,6 +33,9 @@ Route::get('getcategorias/{id}', 'App\Http\Controllers\ShowCategorias@showCat');
 
 //subCategorias
 Route::get('showSubCategorias', 'App\Http\Controllers\SubCategoriasController@showSubCategorias');
+Route::delete('deleteSubCategoria', 'App\Http\Controllers\SubCategoriasController@deleteSubCategoria');
+Route::put('updateSubCategoria', 'App\Http\Controllers\SubCategoriasController@updateSubCategoria');
+Route::post('addSubCategoria', 'App\Http\Controllers\SubCategoriasController@addSubCategoria');
 
 //categorias e subcategorias
 Route::get('showAll', 'App\Http\Controllers\SubCategoriasController@showAll');

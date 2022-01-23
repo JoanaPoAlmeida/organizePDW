@@ -38,11 +38,13 @@ export class GerirDespesasComponent implements OnInit {
   }
 
   addDespesa(){
-    this.despObj.idDespesa = this.despDetail.value.id;
+    this.despObj.idDespesas = this.despDetail.value.id;
     this.despObj.nomeDespesa = this.despDetail.value.name;
     this.despObj.valor = this.despDetail.value.valor;
     this.despObj.data = this.despDetail.value.data;
-    //this.despObj.subcategoryID= this.despDetail.value.subcategoryID;
+    this.despObj.idCategoria= this.despDetail.value.subcategoryID;
+    
+   
    
     this.despService.addDespesa(this.despObj).subscribe(res=>{
       console.log(res);
@@ -70,6 +72,11 @@ export class GerirDespesasComponent implements OnInit {
   }
 
   deleteDespesa(despesa: Despesas){
-    console.log("siiiiiiiiiiiim");
+    this.despService.deleteDespesa(despesa).subscribe(res=>{
+      console.log(res);
+      this.getAllDespesas();
+    }, err=>{
+      console.log(err);
+    })
   }
 }

@@ -33,16 +33,17 @@
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Categoria</th>
-                    <th scope="col">Valor</th>
                     <th scope="col">Data</th>
+                    <th scope="col">Valor</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let despesa of despList">
-                    <td>{{despesa.idDespesa}}</td>
+                    <td>{{despesa.idDespesas}}</td>
                     <td>{{despesa.nomeDespesa}}</td>
                     <td>{{despesa.idCategoria}}</td>
+                    <td>{{despesa.data}}</td>
                     <td>{{despesa.valor}}<p> €</p></td>
                     <td>
                         <button mat-icon-button ><mat-icon>edit</mat-icon></button>

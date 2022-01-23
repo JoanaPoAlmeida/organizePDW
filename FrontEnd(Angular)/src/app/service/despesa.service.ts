@@ -15,10 +15,10 @@ export class DespesaService {
 
   constructor(private http: HttpClient) {
 
-    this.addDespURL = 'http://localhost:4200/mainpage/despesas'
-    this.getDespURL = 'http://localhost:4200/mainpage/despesas'
+    this.addDespURL = 'http://127.0.0.1:8000/api/addDespesa/'
+    this.getDespURL = 'http://127.0.0.1:8000/api/getdespesas'
     this.updateDespURL = 'http://localhost:4200/mainpage/despesas'
-    this.deleteDespURL = 'http://localhost:4200/mainpage/despesas'
+    this.deleteDespURL = 'http://127.0.0.1:8000/api/deleteDespesa'
    }
 
    addDespesa(desp: Despesas): Observable<Despesas> {
@@ -30,6 +30,6 @@ export class DespesaService {
    }
 
    deleteDespesa(desp: Despesas) : Observable<Despesas> {
-     return this.http.delete<Despesas>(this.deleteDespURL+'/' +desp.idDespesa);
+     return this.http.delete<Despesas>(this.deleteDespURL+'/' +desp.idDespesas);
    }
 }

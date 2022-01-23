@@ -1,6 +1,8 @@
 <?php
 
 use Maatwebsite\Excel\Excel;
+use Maatwebsite\Excel\Concerns\FromCollection;
+use App\Models\despesas;
 
 return [
     'exports' => [

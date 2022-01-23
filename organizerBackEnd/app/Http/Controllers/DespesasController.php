@@ -47,7 +47,7 @@ class DespesasController extends Controller
         }
     }
     public function exportDespesas(){
-        return Excel::download(new despesasExport, 'downloadDespesas.csv');
+        return Excel::download(new despesasExport, 'downloadDespesas.xlsx');
     }
 }
  

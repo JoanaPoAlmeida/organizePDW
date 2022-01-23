@@ -10,7 +10,7 @@ class despesas extends Model
     use HasFactory;
 
     protected $primaryKey = 'idCategoria';
-
+    protected $table = 'despesas';
     protected $fillable = [
         'nomeDespesa',
         'valor',

@@ -10,13 +10,15 @@ import { Router } from '@angular/router';
 export class LoginService {
 
   loginURL : string;
+  registerURL : string;
   
   constructor(private http: HttpClient, public router: Router) { 
     this.loginURL = 'http://127.0.0.1:8000/api/login'
+    this.registerURL = 'http://127.0.0.1:8000/api/register'
   }
 
   confirmRegister(user:User){
-    return this.http.post<User>(this.loginURL, user).subscribe((res: any)=>{
+    return this.http.post<User>(this.registerURL, user).subscribe((res: any)=>{
       if(res=="Registo falhou"){
         alert(res);
       }else{

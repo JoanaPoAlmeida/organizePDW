@@ -15,6 +15,16 @@ export class LoginService {
     this.loginURL = 'http://127.0.0.1:8000/api/login??'
   }
 
+  confirmRegister(user:User){
+    return this.http.post<User>(this.loginURL, user).subscribe((res: any)=>{
+      if(res=="Registo falhou"){
+        alert(res);
+      }else{
+        this.router.navigate(['/login']);
+      }
+    });
+  }
+
   confirmLogin(user: User){
     return this.http.post<User>(this.loginURL, user).subscribe((res: any)=>{
       if(res=="Login falhou"){

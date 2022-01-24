@@ -27,9 +27,9 @@ export class LoginComponent implements OnInit {
 
 
   loginconfirmation(){
-    this.loginObj.name= this.loginDetail.value.username;
+    this.loginObj.email= this.loginDetail.value.username;
     this.loginObj.password= this.loginDetail.value.password;
-    
+    console.log(this.loginObj);
     this.loginService.confirmLogin(this.loginObj);
   }
 }

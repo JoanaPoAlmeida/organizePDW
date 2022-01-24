@@ -12,6 +12,6 @@ class despesasExport implements FromCollection
     */
     public function collection()
     {
-        return despesas::all();
+        return despesas::where('idUser','=', 1 /*posteriormente mudar para Auth()->id()*/)->get();
     }
 }

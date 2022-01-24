@@ -12,18 +12,18 @@
             <div class="login-content" fxFlex>
                 <div class="login-div">
                     <div class="login-card">
-                        <form  fxLayout="column" class="login-form">
+                        <form  fxLayout="column" [formGroup]="loginDetail"  class="login-form">
                             <mat-form-field>
                             <mat-label>Username</mat-label>
-                            <input matInput>
+                            <input matInput class="form-control" formControlName="username">
                             </mat-form-field>
                 
                             <mat-form-field>
                                 <mat-label>Password</mat-label>
-                                <input matInput type="password">
+                                <input matInput type="password" class="form-control" formControlName="password">
                             </mat-form-field>
                 
-                            <button mat-raised-button type="submit" routerLink="/mainpage/dashboard">Sign In</button>
+                            <button mat-raised-button type="submit" (click)="loginconfirmation()">Sign In</button>
                             <a routerLink="/signup">New User? Click Here</a>
                         </form>
                     </div>

@@ -12,7 +12,7 @@ export class LoginService {
   loginURL : string;
   
   constructor(private http: HttpClient, public router: Router) { 
-    this.loginURL = 'http://127.0.0.1:8000/api/login??'
+    this.loginURL = 'http://127.0.0.1:8000/api/login'
   }
 
   confirmRegister(user:User){
